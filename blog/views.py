@@ -1,6 +1,8 @@
 from django.shortcuts import render , get_object_or_404
-from django.http import HttpResponse
-from .models import Post 
+from django.http import HttpResponse , JsonResponse
+from rest_framework.parsers import JSONParser
+from .models import Post
+from .serializers import PostSerializer 
 from django.views.generic import ListView , DetailView , CreateView , UpdateView , DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin , UserPassesTestMixin
 from django.contrib.auth.models import User
@@ -88,14 +90,10 @@ class UserPostListViews(ListView):
 
 
 	 
-	 	
-	 	
-
-
-
-
-
 def about(request):
 	return render(request , 'blog/about.html' , {'title':'About'})
 	# return HttpResponse('<h1>ABOUT</h1>')
+
+
+
  
